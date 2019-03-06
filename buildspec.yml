@@ -7,10 +7,12 @@ phases:
       - apt-get install -y nodejs
       - node -v
       - npm -v
+  pre_build:
+    commands:
+      - git checkout develop
   build:
     commands:
       - echo $AWS_REGION
-      - git checkout develop
       - composer install
       - npm install
       - npm run prod
