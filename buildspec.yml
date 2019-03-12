@@ -13,6 +13,7 @@ phases:
   build:
     commands:
       - echo $AWS_REGION
+      - cp .env.example .env
       - composer install
       - npm install
       - npm run prod
