@@ -14,6 +14,7 @@ phases:
     commands:
       - echo $AWS_REGION
       - cp .env.example .env
+      - php artisan migrate
       - composer install
       - npm install
       - npm run prod
