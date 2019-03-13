@@ -14,10 +14,12 @@ phases:
     commands:
       - echo $AWS_REGION
       - cp .env.example .env
-      - composer install
-      - php artisan migrate
+      - composer install     
       - npm install
       - npm run prod
+  post_build:
+    commands:
+      - php artisan migrate
 artifacts:
   files:
     - '**/*'
