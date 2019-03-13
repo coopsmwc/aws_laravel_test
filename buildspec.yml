@@ -19,6 +19,7 @@ phases:
       - npm run prod
   post_build:
     commands:
+      - printenv
       - php artisan migrate
 artifacts:
   files:
