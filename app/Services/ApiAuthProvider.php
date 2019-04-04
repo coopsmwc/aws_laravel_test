@@ -71,8 +71,8 @@ class ApiAuthProvider  implements UserProviderInterface
             $res = $http->post(env('API_URL').'/oauth/token', [
                 'form_params' => [
                     'grant_type' => 'password',
-                    'client_id' => 2,
-                    'client_secret' => 'HEDgSFHmArEROY1D0VoIfnMj6So8NeGUyFMoQIxa',
+                    'client_id' => env('OAUTH_CLIENT_ID'),
+                    'client_secret' => env('OAUTH_CLIENT_SECRET'),
                     'username' => $credentials['email'],
                     'password' =>$credentials['password'],
                     'scope' => '*',
