@@ -9,7 +9,7 @@ phases:
       - npm -v
   pre_build:
     commands:
-      # git checkout develop
+      # for independant build stage - git checkout develop
   build:
     commands:
       - echo $AWS_REGION
