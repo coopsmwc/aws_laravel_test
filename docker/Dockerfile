@@ -4,6 +4,8 @@ RUN apt-get update && apt-get install -y vim \
 && apt-get install -y iputils-ping && apt-get install -y net-tools \
 && apt-get install -y mysql-client && a2enmod rewrite
 
+RUN docker-php-ext-install pdo pdo_mysql
+
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 COPY docker/files/aws-laravel-test.conf /etc/apache2/sites-enabled/.
