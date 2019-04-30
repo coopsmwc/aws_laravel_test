@@ -28,5 +28,6 @@ services:
       - "4001:80"
     networks:
       - webnet
+    dns: 8.8.8.8
 networks:
   webnet:
