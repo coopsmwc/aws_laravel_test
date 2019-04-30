@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: alpine-web:0.3
+    image: blueminboy/alpine-web
     deploy:
       replicas: 2
       resources:
@@ -15,7 +15,7 @@ services:
     networks:
       - webnet
   api:
-    image: alpine-api:0.1
+    image: blueminboy/alpine-api
     deploy:
       replicas: 2
       resources:
