@@ -1,9 +1,11 @@
 version: "3"
 services:
   web:
-    image: alpine-web:0.3
+    image: laravel-web:dev
+    volumes:
+       - /Users/adminmwc/dev/home/www/aws_laravel_test:/app
     deploy:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           cpus: "0.1"
@@ -15,9 +17,11 @@ services:
     networks:
       - webnet
   api:
-    image: alpine-api:0.1
+    image: laravel-api:dev
+    volumes:
+       - /Users/adminmwc/dev/home/www/aws_laravel_test_api:/app
     deploy:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           cpus: "0.1"
@@ -35,6 +39,8 @@ services:
        - /Users/adminmwc/dev/home/www/docker-data/mysql:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    ports:
+      - "33060:3306"
     networks:
       - webnet
 networks:

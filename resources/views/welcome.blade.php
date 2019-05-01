@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Web {{ env('HOSTNAME') }}
+                    Laravel Web Service {{ env('HOSTNAME') }}
                 </div>
 
                 <div class="links">

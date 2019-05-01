@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: blueminboy/alpine-web
+    image: blueminboy/laravel-web:latest
     deploy:
       replicas: 2
       resources:
@@ -15,7 +15,7 @@ services:
     networks:
       - webnet
   api:
-    image: blueminboy/alpine-api
+    image: blueminboy/laravel-api:latest
     deploy:
       replicas: 2
       resources:

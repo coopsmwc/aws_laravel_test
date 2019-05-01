@@ -1,16 +1,13 @@
-FROM php:7.2-apache
+FROM ulsmith/alpine-apache-php7
+ 
+RUN apk add --no-cache mysql-client
 
-RUN apt-get update && apt-get install -y vim \
-&& apt-get install -y iputils-ping && apt-get install -y net-tools \
-&& apt-get install -y mysql-client && a2enmod rewrite
+COPY ./ /app
+RUN chown -R apache:apache  /app/storage
 
-RUN docker-php-ext-install pdo pdo_mysql
+ENV DB_HOST=beanstalk-abs.ckkzpudtbjwv.us-east-2.rds.amazonaws.com
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-COPY docker/files/aws-laravel-test.conf /etc/apache2/sites-enabled/.
-
-# ENV API_URL=http://api
+ENV API_URL=http://api
 ENV OAUTH_CLIENT_ID=2
-ENV OAUTH_CLIENT_SECRET=GzrJTDlKZQCAAKzP6ruJsVtRlnyFFFnXXgkBu8la
+ENV OAUTH_CLIENT_SECRET=Iy3Vphif7nvTphuWf51I5U5rhOo6v7duxrH6aYaQ
 
